@@ -39,6 +39,9 @@ async function main() {
     await fs.mkdir(directory, { recursive: true });
     return fs.writeFile(filename, data, "utf8");
   });
+
+  await fs.writeFile("./dist-release/.nojekyll", "");
+  await fs.writeFile("./dist-release/CNAME", "moth.fans");
 }
 
 main();
