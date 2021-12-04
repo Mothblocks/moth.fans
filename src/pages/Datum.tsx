@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { Datum as DatumEntry } from "../data";
+import moth_flying2 from "url:../../assets/moth_flying2.gif";
 
 export const Datum = (props: { datum: DatumEntry }) => {
   const { datum } = props;
@@ -22,6 +23,14 @@ export const Datum = (props: { datum: DatumEntry }) => {
     <div>
       <Helmet>
         <title>{datum.name}</title>
+
+        <meta property="og:title" content={datum.name} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={moth_flying2} />
+        <meta
+          property="og:url"
+          content={`https://moth.fans/data/${datum.name}`}
+        />
       </Helmet>
 
       <h1>{datum.name}</h1>
