@@ -1,6 +1,9 @@
 import * as moths from "../../assets/moths/*";
+import { useTitle } from "../useTitle";
 
 export const Moths = () => {
+  useTitle("Moths");
+
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Moths</h1>

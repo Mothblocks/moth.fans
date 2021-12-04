@@ -1,8 +1,11 @@
 import { useEffect, useRef } from "react";
 import { Datum as DatumEntry } from "../data";
+import { useTitle } from "../useTitle";
 
 export const Datum = (props: { datum: DatumEntry }) => {
   const { datum } = props;
+
+  useTitle(datum.name);
 
   // We need to execute script tags from the output.
   // This won't run during SSG, but it doesn't have to.

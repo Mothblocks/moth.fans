@@ -1,6 +1,9 @@
 import jigsaw from "../../assets/jigsaw.png";
+import { useTitle } from "../useTitle";
 
 export const MothVideo = () => {
+  useTitle("Moth Video");
+
   return (
     <div
       style={{
