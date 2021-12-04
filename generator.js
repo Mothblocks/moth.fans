@@ -1,5 +1,7 @@
+// Heavily inspired by https://github.com/LPGhatguy/parcel-ssg-example/
 import { App } from "./src/App";
 import cheerio from "cheerio";
+import { Helmet } from "react-helmet";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import * as path from "path";
@@ -41,7 +43,13 @@ export async function processFile(template, writeFile) {
       </StaticRouter>
     );
 
+    const helmet = Helmet.renderStatic();
+
     const $ = cheerio.load(template);
+
+    $("head").append(helmet.meta.toString());
+    $("head").append(helmet.title.toString());
+
     $("#root").html(rendered);
 
     for (const link of $("a")) {

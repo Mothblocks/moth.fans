@@ -1,11 +1,13 @@
+import { Helmet } from "react-helmet";
 import * as moths from "../../assets/moths/*";
-import { useTitle } from "../useTitle";
 
 export const Moths = () => {
-  useTitle("Moths");
-
   return (
     <div style={{ textAlign: "center" }}>
+      <Helmet>
+        <title>Moths</title>
+      </Helmet>
+
       <h1>Moths</h1>
 
       {Object.values(moths).map((moth, index) => {

@@ -3,11 +3,9 @@ import any_browser from "url:../../assets/rh-anim.gif";
 import moth_flying from "url:../../assets/moth_flying.gif";
 import moth_flying2 from "url:../../assets/moth_flying2.gif";
 import { Link } from "react-router-dom";
-import { useTitle } from "../useTitle";
+import { Helmet } from "react-helmet";
 
 export const Home = () => {
-  useTitle("Home");
-
   const mothsForGallery = Object.values(moths);
   mothsForGallery.splice(5);
 
@@ -20,6 +18,10 @@ export const Home = () => {
         textAlign: "center",
       }}
     >
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
+
       <div
         style={{
           alignItems: "center",

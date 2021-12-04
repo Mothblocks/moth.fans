@@ -1,9 +1,7 @@
+import { Helmet } from "react-helmet";
 import jigsaw from "../../assets/jigsaw.png";
-import { useTitle } from "../useTitle";
 
 export const MothVideo = () => {
-  useTitle("Moth Video");
-
   return (
     <div
       style={{
@@ -12,6 +10,10 @@ export const MothVideo = () => {
         flexDirection: "column",
       }}
     >
+      <Helmet>
+        <title>Moth Video</title>
+      </Helmet>
+
       <h1 style={{ marginBottom: "0px" }}>Moth Video</h1>
 
       <h2 style={{ marginTop: "0px" }}>
