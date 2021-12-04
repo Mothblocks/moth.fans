@@ -17,6 +17,7 @@ async function main() {
     targets: {
       default: {
         distDir: ".cache/generator",
+        publicUrl: "https://moth.fans/",
       },
     },
   });
@@ -31,7 +32,7 @@ async function main() {
 
   await generator.buildDirectory(Parcel, OUT_DIR);
 
-  const indexFile = await fs.readFile("./dist/index.html", "utf8");
+  const indexFile = await fs.readFile("./dist-release/index.html", "utf8");
   await generator.processFile(indexFile, async (filename, data) => {
     filename = path.join(OUT_DIR, filename);
     const directory = path.dirname(filename);

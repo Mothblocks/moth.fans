@@ -4,7 +4,7 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import * as path from "path";
 
-const BASE_URL = "/";
+const BASE_URL = "https://moth.fans";
 
 export async function build(Parcel, distDir, entry) {
   const bundler = new Parcel({
@@ -12,9 +12,9 @@ export async function build(Parcel, distDir, entry) {
     mode: "production",
     targets: {
       default: {
-        context: "node",
+        context: "browser",
         distDir,
-        includeNodeModules: true,
+        publicUrl: BASE_URL,
       },
     },
   });
@@ -36,7 +36,7 @@ export async function processFile(template, writeFile) {
     console.log(`Processing ${route}`);
 
     const rendered = ReactDOMServer.renderToString(
-      <StaticRouter location={route} basename={BASE_URL}>
+      <StaticRouter location={route} basename="/">
         <App />
       </StaticRouter>
     );
@@ -45,11 +45,12 @@ export async function processFile(template, writeFile) {
     $("#root").html(rendered);
 
     for (const link of $("a")) {
-      if (!link.attribs.href.startsWith(BASE_URL)) {
+      const newRoute = link.attribs.href;
+      console.log("link", newRoute);
+
+      if (/^\w+:\/\//.test(newRoute)) {
         continue;
       }
-
-      const newRoute = link.attribs.href;
 
       if (!visitedRoutes.has(newRoute) && routes.indexOf(newRoute) === -1) {
         routes.push(newRoute);
