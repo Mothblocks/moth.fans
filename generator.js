@@ -46,7 +46,6 @@ export async function processFile(template, writeFile) {
 
     for (const link of $("a")) {
       const newRoute = link.attribs.href;
-      console.log("link", newRoute);
 
       if (/^\w+:\/\//.test(newRoute)) {
         continue;
