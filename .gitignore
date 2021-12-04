@@ -1,0 +1,7 @@
+node_modules/
+.cache/
+.parcel-cache/
+__pycache__/
+dist/
+dist-release/
+data-sections/**/output.html
