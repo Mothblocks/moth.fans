@@ -9,7 +9,6 @@ async function main() {
   await fs.mkdir(OUT_DIR);
 
   const bundler = new Parcel({
-    defaultConfig: "@parcel/config-default",
     entries: "./generator.js",
     mode: "production",
     env: {

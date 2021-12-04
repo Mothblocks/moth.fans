@@ -19,6 +19,9 @@ export const Datum = (props: { datum: DatumEntry }) => {
 
   return (
     <div>
+      <h1>{datum.name}</h1>
+      <p>Last updated: {datum.last_updated}</p>
+
       <div
         ref={outputRef}
         className="data-output"

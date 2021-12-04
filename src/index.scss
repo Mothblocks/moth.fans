@@ -1,0 +1,43 @@
+body {
+	background: beige;
+	margin: 2%;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+
+	li {
+		margin: 0;
+
+		&:before {
+			background: #66f;
+			border: 1px double #ddd;
+			content: "";
+			display: inline-block;
+			margin-right: .4em;
+			height: .5em;
+			width: .5em;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.marquee {
+	animation: marquee 10s linear infinite;
+}
+
+.navbar {
+	margin-right: 10px;
+	width: 20%;
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(-400%);
+	}
+}

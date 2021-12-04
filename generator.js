@@ -8,7 +8,6 @@ const BASE_URL = "/";
 
 export async function build(Parcel, distDir, entry) {
   const bundler = new Parcel({
-    defaultConfig: "@parcel/config-default",
     entries: entry,
     mode: "production",
     targets: {

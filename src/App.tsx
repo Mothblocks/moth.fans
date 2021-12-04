@@ -1,27 +1,21 @@
 import React from "react";
-import { Outlet, Route, Routes } from "react-router";
-import { Links } from "./components/Links";
+import { Route, Routes } from "react-router";
+import { Template } from "./components/Template";
 import { Data } from "./pages/Data";
 import { Datum } from "./pages/Datum";
 import { Home } from "./pages/Home";
+import { Moths } from "./pages/Moths";
+import { MothVideo } from "./pages/MothVideo";
 import data from "../data.json";
-
-const Index = () => {
-  return (
-    <div>
-      <Links data={data} />
-
-      <Outlet />
-    </div>
-  );
-};
 
 export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Index />}>
+        <Route path="/" element={<Template />}>
           <Route index element={<Home />} />
+          <Route path="/moths" element={<Moths />} />
+          <Route path="/moth-video" element={<MothVideo />} />
 
           <Route path="data">
             <Route index element={<Data data={data} />} />

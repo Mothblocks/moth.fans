@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@parcel/core": "^2.0.1",
+    "@parcel/resolver-glob": "^2.0.1",
+    "@parcel/transformer-sass": "^2.0.1",
     "@parcel/transformer-toml": "^2.0.1",
     "@types/node": "^16.11.11",
     "@types/react": "^17.0.37",
