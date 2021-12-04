@@ -1,0 +1,2 @@
+body{background:beige;margin:2%}ul{list-style:none;padding:0}ul li{margin:0}ul li:before{background:#66f;border:1px double #ddd;content:"";display:inline-block;height:.5em;margin-right:.4em;transform:rotate(45deg);width:.5em}.marquee{animation:marquee 10s linear infinite}.navbar{margin-right:10px;width:20%}@keyframes marquee{0%{transform:translateX(100%)}to{transform:translateX(-400%)}}
+/*# sourceMappingURL=index.d2d99a1f.css.map */
