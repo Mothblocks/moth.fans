@@ -1,4 +1,3 @@
-from pathlib import Path
 from plotly.subplots import make_subplots
 import pandas as pd
 import psycopg
@@ -15,10 +14,9 @@ def process_round(raw_round):
 		"server": raw_round["server"],
 	}
 
-def generate(html_out, postgres, **kwargs):
+def generate(html_out, postgres, read_file, **kwargs):
 	with postgres.cursor(row_factory = psycopg.rows.dict_row) as cursor:
-		with open(Path(__file__).resolve().parent.joinpath("get_rounds.sql"), "r") as query_file:
-			cursor.execute(query_file.read())
+		cursor.execute(read_file("get_rounds.sql"))
 
 		rounds = pd.DataFrame(list(map(
 			process_round,
