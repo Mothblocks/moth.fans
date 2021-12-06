@@ -9,4 +9,9 @@ if [[ $(git status --porcelain | wc -c) -ne 0 ]]; then
 fi
 
 powershell.exe -File generate_data.ps1
+
+git add data.json
+git commit -m "Update data (automated)"
+git push
+
 ./publish.sh
