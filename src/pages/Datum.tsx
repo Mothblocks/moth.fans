@@ -17,7 +17,7 @@ export const Datum = (props: { datum: DatumEntry }) => {
       scriptElement.textContent = script.textContent;
       element.appendChild(scriptElement);
     }
-  }, [outputRef]);
+  }, [datum, outputRef]);
 
   return (
     <div>
