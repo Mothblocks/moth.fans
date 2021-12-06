@@ -3,6 +3,7 @@ import pandas as pd
 import psycopg
 
 NAME = "Round Lengths (in past 30 days)"
+DESCRIPTION = "Round lengths over the past 30 days, per server. The red bar is 90 minutes, the designed around round time."
 
 # TODO: This query takes in rulesets and threatlevel, but this is not available through the charts
 def process_round(raw_round):

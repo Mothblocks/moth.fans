@@ -3,6 +3,7 @@ import json
 import os
 import psycopg
 import pymysql
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -30,6 +31,9 @@ with open(os.path.join(private_config, "mysql.json"), "r") as mysql_details_file
 	)
 
 for section_name in os.listdir("./data-sections"):
+	if len(sys.argv) > 1 and section_name not in sys.argv[1:]:
+		continue
+
 	print(f"Generating {section_name}...")
 
 	out_path = os.path.join("./data-sections", section_name, "output.html")
@@ -47,6 +51,7 @@ for section_name in os.listdir("./data-sections"):
 		with open(out_path, "r") as file:
 			data[section_name] = {
 				"name": generator.NAME,
+				"description": generator.DESCRIPTION,
 				"last_updated": str(datetime.now()),
 				"output": file.read(),
 			}

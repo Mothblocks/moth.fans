@@ -25,6 +25,7 @@ export const Datum = (props: { datum: DatumEntry }) => {
         <title>{datum.name}</title>
 
         <meta property="og:title" content={datum.name} />
+        <meta property="og:description" content={datum.description} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={moth_flying2} />
         <meta
@@ -34,6 +35,14 @@ export const Datum = (props: { datum: DatumEntry }) => {
       </Helmet>
 
       <h1>{datum.name}</h1>
+      <p
+        style={{
+          fontSize: "1.3em",
+        }}
+      >
+        {datum.description}
+      </p>
+
       <p>Last updated: {datum.last_updated}</p>
 
       <div

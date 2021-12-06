@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 NAME = "New Players"
+DESCRIPTION = "Number of new players per day, per server"
 
 def generate(html_out, mysql, get_server, read_file, **kwargs):
 	with mysql.cursor() as cursor:
@@ -18,7 +19,6 @@ def generate(html_out, mysql, get_server, read_file, **kwargs):
 		y = first_seens_all.values,
 		name = "Total",
 	))
-	# figure.add_traces(list(px.line(first_seens_all).select_traces()))
 
 	for port, data in first_seens.groupby("port"):
 		server_name = get_server(port)
