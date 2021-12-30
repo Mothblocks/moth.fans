@@ -40,12 +40,10 @@ def generate(html_out, postgres, read_file, **kwargs):
 		print(f"{server}: {len(rounds)} rounds")
 
 		for hour in rounds["hour"].unique():
-			fig.add_violin(
+			fig.add_box(
 				x=rounds["hour"][rounds["hour"] == hour],
 				y=rounds["round_length"][rounds["hour"] == hour],
 				name=str(hour),
-				box_visible=True,
-				meanline_visible=True,
 				showlegend=False,
 				row=row + 1,
 				col=1,
