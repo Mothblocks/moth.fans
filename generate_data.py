@@ -15,6 +15,17 @@ SERVER_PORTS = {
 	2337: "Bagil",
 	3336: "Terry",
 	6337: "Campbell",
+	4447: "Event Hall",
+}
+
+SERVER_DISCRETE_COLOR_MAP = {
+	"Sybil": "blue",
+	"Manuel": "orange",
+	"Bagil": "brown",
+	"Terry": "red",
+	"Campbell": "purple",
+	"Event Hall": "green",
+	"Unknown": "black",
 }
 
 private_config = os.path.join(Path.home(), ".moth-fans")
@@ -43,7 +54,8 @@ for section_name in os.listdir("./data-sections"):
 		out_path,
 		mysql=mysql,
 		postgres=postgres,
-		get_server=lambda port: SERVER_PORTS[port] if port in SERVER_PORTS else f"Unknown: {port}",
+		get_server=lambda port: SERVER_PORTS[port] if port in SERVER_PORTS else "Unknown",
+		server_discrete_color_map=SERVER_DISCRETE_COLOR_MAP,
 		read_file=lambda path: open(os.path.join("./data-sections", section_name, path), "r").read(),
 	)
 
