@@ -1,9 +1,6 @@
 from io import StringIO
-from turtle import title
-from plotly.subplots import make_subplots
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 
 NAME = "Nukes 'n' Flukes"
 DESCRIPTION = "Win rates of nuke ops, with and without war, per server, in 30 day buckets"
